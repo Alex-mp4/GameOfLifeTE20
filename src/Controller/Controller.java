@@ -20,7 +20,6 @@ public class Controller implements Runnable{
         running = true;
         thread = new Thread(this);
         thread.start();
-        //view.setVisible();
     }
 
     public synchronized void stop() {
@@ -35,13 +34,9 @@ public class Controller implements Runnable{
     @Override
     public void run() {
         view.setVisible();
-
-        //model.update();
-//        view.draw(model.getShapes());
-
         long startTime = System.currentTimeMillis();
         long lastUpdate = startTime;
-        while (true) {
+        while (running) {
             view.draw(model.getShapes());
             if (System.currentTimeMillis()-lastUpdate > 500) {
                 model.update();

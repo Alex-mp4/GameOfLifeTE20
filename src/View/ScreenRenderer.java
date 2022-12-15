@@ -7,13 +7,6 @@ import java.awt.image.DataBufferInt;
 import java.util.ArrayList;
 
 /**
- * This is a class
- * Created 2021-10-18
- *
- * @author Magnus Silverdal
- */
-
-/**
  * A system for drawing pixelgraphics to the screen using native Java.
  * Created 2021-03-31
  *

@@ -2,8 +2,12 @@ package Model;
 import View.*;
 
 public class Model {
-    public Model(int width, int height) {
+    int width;
+    int height;
 
+    public Model(int width, int height) {
+        this.width = width;
+        this.height = height;
     }
 
     public void update() {
