@@ -39,7 +39,7 @@ public class Controller implements Runnable{
         while (running) {
             view.draw(model.getShapes());
             if (System.currentTimeMillis()-lastUpdate > 500) {
-                model.update();
+                model.update(model.getPoints());
                 lastUpdate = System.currentTimeMillis();
             }
         }
