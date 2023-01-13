@@ -30,4 +30,12 @@ public class Point extends Shape {
     public void setY(int y) {
         this.y = y;
     }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }
