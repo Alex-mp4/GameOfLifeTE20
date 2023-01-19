@@ -1,6 +1,8 @@
 package Model;
 import View.*;
 
+import java.util.Arrays;
+
 public class Model {
     int width;
     int height;
@@ -12,16 +14,25 @@ public class Model {
     }
 
     public void update() {
+        int[] die = new int[points.length];
+        int o = 0;
+        int p;
         for (int i = 0; i < points.length; i++) {
-            //int neighbor = checkNeighbor(width, height, points);
-            System.out.println(points[i] + " has " + getNeighbor(points, points[i]) + " neighbors");
+            //System.out.println(oldArr[i] + " has " + getNeighbor(oldArr, oldArr[i]) + " neighbors");
             // game of life death rule
             if (getNeighbor(points, points[i]) < 2 || getNeighbor(points, points[i]) > 3) {
                 //delete point[i]
-                points = removeTheElement(points, i);
-                // i--;
+                die[o] = i;
+                o++;
+                //i--;
             }
             //for reproduction: points.add(new Point(x, y));
+        }
+        for (int i = 0; i < die.length; i++) {
+            //remove pixel on position at die from loop above, p becomes position as int
+            p = die[i];
+            System.out.println(p);
+            points = removeTheElement(points, p);
         }
     }
 
