@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Model {
     int width;
     int height;
-    Point[] points = {new Point(1, 1), new Point(5,5), new Point(6, 5), new Point(7, 5)};
+    Point[] points = {new Point(1, 1), new Point(2, 1), new Point(1, 2), new Point(2, 2), new Point(5,5), new Point(6, 5), new Point(7, 5)};
 
     public Model(int width, int height) {
         this.width = width;
@@ -27,12 +27,16 @@ public class Model {
                 //i--;
             }
             //for reproduction: points.add(new Point(x, y));
+            if (checkNeighbor(width, height, points) == 3) {
+
+            }
         }
         for (int i = 0; i < die.length; i++) {
             //remove pixel on position at die from loop above, p becomes position as int
             p = die[i];
             System.out.println(p);
             points = removeTheElement(points, p);
+            //die = removeTheIntElement(die, p);
         }
     }
 
@@ -51,6 +55,7 @@ public class Model {
                 x = o;
             }
             System.out.println("Position " + (i+1) + " has " + neighbor + " neighbors");
+            neighbor = 0;
         }
 
         return neighbor;
@@ -91,6 +96,36 @@ public class Model {
 
         // Create another array of size one less
         Point[] anotherArray = new Point[arr.length - 1];
+
+        // Copy the elements from starting till index
+        // from original array to the other array
+        System.arraycopy(arr, 0, anotherArray, 0, index);
+
+        // Copy the elements from index + 1 till end
+        // from original array to the other array
+        System.arraycopy(arr, index + 1,
+                anotherArray, index,
+                arr.length - index - 1);
+
+        // return the resultant array
+        return anotherArray;
+    }
+
+    public static int[] removeTheIntElement(int[] arr, int index)
+    {
+
+        // If the array is empty
+        // or the index is not in array range
+        // return the original array
+        if (arr == null
+                || index < 0
+                || index >= arr.length) {
+
+            return arr;
+        }
+
+        // Create another array of size one less
+        int[] anotherArray = new int[arr.length - 1];
 
         // Copy the elements from starting till index
         // from original array to the other array
